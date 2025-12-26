@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: theme('colors.primary.600');
+    --primary-hover: theme('colors.primary.700');
+    --secondary: theme('colors.secondary.600');
+    --accent: theme('colors.accent.500');
+    --accent-hover: theme('colors.accent.600');
+  }
+
+  html {
+    @apply scroll-smooth;
+    overflow-x: hidden;
+  }
+  
+  body {
+    @apply antialiased text-secondary-800 bg-white font-sans leading-relaxed;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-secondary-900 leading-tight tracking-tight;
+  }
+
+  h1 { @apply text-4xl md:text-5xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  h4 { @apply text-xl md:text-2xl; }
+  h5 { @apply text-lg md:text-xl; }
+  h6 { @apply text-base md:text-lg; }
+
+  p {
+    @apply text-secondary-600 leading-relaxed;
+  }
+
+  a {
+    @apply text-primary-600 hover:text-primary-700 transition-colors duration-200;
+  }
+
+  button, .btn {
+    @apply transition-all duration-200 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-6 rounded-lg shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-100 hover:bg-secondary-200 text-secondary-800 font-medium py-2 px-6 rounded-lg border border-secondary-200;
+  }
+
+  .btn-accent {
+    @apply bg-accent-500 hover:bg-accent-600 text-white font-medium py-2 px-6 rounded-lg shadow-md hover:shadow-lg;
+  }
+
+  #root {
+    @apply w-full overflow-x-hidden;
+  }
+
+  img, video, canvas, svg {
+    @apply max-w-full h-auto align-middle;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-secondary-300 rounded-full hover:bg-secondary-400;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-accent-500;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+  }
+
+  .glass {
+    @apply bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg border border-opacity-20 border-white;
+  }
+}
